@@ -161,6 +161,26 @@ quotes_authors$author <- authors
 author_freq <- table(authors)
 ```
 
+As with the tags, I plot a graph of frequency of authors:
+
+``` r
+author_freq_df <- quotes_authors %>%
+  separate_rows(author, sep = ";") %>%
+  group_by(author) %>%
+  summarise(freq = n()) %>%
+  ungroup()
+
+ggplot(author_freq_df[order(author_freq_df$freq, decreasing = TRUE), ][1:25,], aes(x = freq, y = author)) +
+  geom_point(size = 3, color = "blue") +
+  geom_segment(aes(x = 0, y = author, xend = freq, yend = author),
+               color = "gray70", size = 0.5) +
+  theme_classic() +
+  labs(title = "Occurence Map of Goodreads Quote Authors",
+       x = "Frequency of Author", y = "Author")
+```
+
+![](Title_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+
 ## Bubble Graph
 
 A very popular way of visualizing the frequency of occurrence is via a
@@ -215,7 +235,7 @@ sub_matrix <- tag_pair[top_100_tags, top_100_tags]
 ggnet2(sub_matrix, size = 12, label = TRUE, color = "black", label.color = "tomato")
 ```
 
-![](Title_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
+![](Title_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
 This is a relatively newly popular way of mapping the relationship
 between actors in different circumstances.
@@ -230,7 +250,7 @@ Other methods of mapping correlations include:
 ggcorr(sub_matrix, method = c("everything", "pearson"))
 ```
 
-![](Title_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+![](Title_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
 
 ### Heatmaps
 
@@ -238,4 +258,4 @@ ggcorr(sub_matrix, method = c("everything", "pearson"))
 heatmap(sub_matrix, Colv = NA, Rowv = NA, scale="column",col = rainbow(256))
 ```
 
-![](Title_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
+![](Title_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
