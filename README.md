@@ -1,27 +1,16 @@
-# Analyzing Viral Content on Goodreads: A Data Science Approach to Understanding Quote Popularity
+# The Messenger or the Message?
+## Decomposing the Drivers of Quote Engagement on Goodreads
 
-This project applies advanced data science techniques to analyze what makes quotes go viral on Goodreads, combining traditional econometric methods with cutting-edge natural language processing. Using a [dataset](https://www.kaggle.com/datasets/abhishekvermasg1/goodreads-quotes) of popular quotes from the platform, I investigated how content characteristics, emotional sentiment, and author influence affect engagement.
+**Summary of findings:** Author identity alone explains 53% of the variance in quote engagement on Goodreads. After controlling for authorial reputation via fixed effects, textual content explains a further 7.9 percentage points of within-author variation — and 89% of that content signal is carried by deep semantic embeddings, not surface-level stylistic features. Sentiment score contributes less than 1%. The implication: on this platform, literary engagement is primarily a reputation market, and when content does matter, it is about thematic substance rather than how something is written.
 
-The analysis employs multiple methodological approaches:
+---
 
-- Natural Language Processing (BERT) for sentiment analysis
-- Network analysis to map author relationships and influence
-- Machine learning for popularity prediction
-- Statistical analysis of quote characteristics
+Regressing quote engagement on content features without accounting for author identity produces estimates that are almost certainly biased. Quotes from well-known authors are more likely to be seen, more likely to be tagged, and more likely to be liked regardless of what is actually written. Any apparent correlation between textual properties and engagement may simply reflect the shadow of authorial fame rather than anything intrinsic to the quote.
 
-Read the [full report](https://github.com/jormur/goodreads-quotes-analysis/blob/main/goodreads_notebook.ipynb).
+The question begged to be asked is more precise: **conditional on who wrote it, does what was written still matter?**
 
-Key findings revealed that viral success isn't simply about positive messaging—quotes with complex emotional content often perform well, despite positive quotes averaging 1,744 likes compared to 939 for negative ones. Surface-level features like length and complexity showed surprisingly weak correlations with popularity. The project identified 8 distinct author communities through network analysis.
+This project addresses that question through a series of structured stages. First, I estimate the share of engagement variance attributable to author identity alone (the *messenger effect*) using a saturated author fixed-effects model. Second, I test whether textual content features explain meaningful additional within-author variation across three nested model specifications (the *message effect*). Third, I apply SHAP-based feature attribution to a gradient-boosted model to decompose the content signal across feature families: structural properties, sentiment, semantic embeddings, and topic clusters.
 
-Interestingly, the challenge in predicting quote popularity (demonstrated by a negative R-squared score) suggests that virality depends on complex factors beyond textual characteristics alone, including timing and network effects.
-
-This project showcases the application of both Python and R in data science, demonstrating proficiency in:
-
-- Advanced NLP techniques
-- Network analysis
-- Statistical modeling
-- Data visualization
-- Machine learning
-- Causal inference
+The dataset is the [Goodreads Quotes dataset](https://www.kaggle.com/akmittal/goodreads-quotes) from Kaggle, containing 2,996 quotes across 1,409 unique authors with associated like counts and user-assigned tags.
 
 This project can also be found on my [personal website](https://jormur.github.io/).
