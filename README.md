@@ -1,11 +1,11 @@
 # The Messenger or the Message?
-## Decomposing the Drivers of Quote Engagement on Goodreads
+## The Drivers of Quote Engagement on Goodreads
 
-**Summary of findings:** Author identity alone explains 53% of the variance in quote engagement on Goodreads. After controlling for authorial reputation via fixed effects, textual content explains a further 7.9 percentage points of within-author variation — and 89% of that content signal is carried by deep semantic embeddings, not surface-level stylistic features. Sentiment score contributes less than 1%. The implication: on this platform, literary engagement is primarily a reputation market, and when content does matter, it is about thematic substance rather than how something is written.
+**Summary of findings:** Author identity alone explains 53% of the variance in quote engagement on Goodreads. After controlling for authorial reputation via fixed effects, textual content explains a further 7.9 percentage points of within-author variation; and 89% of that content signal is carried by deep semantic embeddings, not surface-level stylistic features. Sentiment score contributes less than 1%. The implication is that (on this platform) literary engagement is primarily a reputation market, and when content does matter, it is about thematic substance rather than how something is written.
 
 ---
 
-Regressing quote engagement on content features without accounting for author identity produces estimates that are almost certainly biased. Quotes from well-known authors are more likely to be seen, more likely to be tagged, and more likely to be liked regardless of what is actually written. Any apparent correlation between textual properties and engagement may simply reflect the shadow of authorial fame rather than anything intrinsic to the quote.
+Regressing quote engagement on content features without accounting for author identity produces estimates that are almost certainly biased. Quotes from well-known authors are more likely to be seen, more likely to be tagged, and more likely to be liked regardless of what is actually written. Any apparent correlation between textual properties and engagement may very well simply reflect the shadow of authorial fame rather than anything intrinsic to the quote.
 
 The question begged to be asked is more precise: **conditional on who wrote it, does what was written still matter?**
 
