@@ -13,4 +13,4 @@ This project addresses that question through a series of structured stages. Firs
 
 The dataset is the [Goodreads Quotes dataset](https://www.kaggle.com/akmittal/goodreads-quotes) from Kaggle, containing 2,996 quotes across 1,409 unique authors with associated like counts and user-assigned tags.
 
-This project can also be found on my [personal website](https://jormur.github.io/).
+This project can also be found on my [personal website](jordan.amurillo.workers.dev/).
